@@ -1,11 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Deepanjali Verma | Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 50px;
+      text-align: center;
+      max-width: 600px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 { color: #333; font-size: 2.5em; margin-bottom: 10px; }
+    .role { color: #667eea; font-size: 1.2em; margin-bottom: 30px; }
+    .links { display: flex; gap: 15px; justify-content: center; margin-bottom: 40px; }
+    .links a {
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+    .links a:hover { transform: scale(1.05); }
+    .github { background: #333; color: white; }
+    .linkedin { background: #0077b5; color: white; }
+    .email { background: #ea4335; color: white; }
+    h2 { color: #333; margin-bottom: 20px; }
+    .projects { display: flex; flex-direction: column; gap: 15px; }
+    .project {
+      background: #f8f9fa;
+      padding: 15px 20px;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+      text-align: left;
+    }
+    .project h3 { color: #333; margin-bottom: 5px; }
+    .project p { color: #666; font-size: 0.9em; }
+    .project a {
+      color: #667eea;
+      text-decoration: none;
+      font-size: 0.85em;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <h1>Deepanjali Verma</h1>
-  <p>Frontend Web Developer</p>
-  <a href="https://github.com/Deepanjaliverma">GitHub</a>
+  <div class="card">
+    <h1>Deepanjali Verma</h1>
+    <p class="role">Frontend Web Developer</p>
+
+    <div class="links">
+      <a class="github" href="https://github.com/Deepanjaliverma">GitHub</a>
+      <a class="linkedin" href="https://linkedin.com/in/deepanjali-verma-96336a326">LinkedIn</a>
+      <a class="email" href="mailto:nes9deep65321@gmail.com">Email</a>
+    </div>
+
+    <h2>My Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Currency Converter</h3>
+        <p>Real-time currency conversion using Exchange Rate API</p>
+        <a href="https://github.com/Deepanjaliverma/Currency-Convertor-Website">View Project →</a>
+      </div>
+      <div class="project">
+        <h3>Stone Paper Scissors Game</h3>
+        <p>Interactive game built with JavaScript</p>
+        <a href="https://github.com/Deepanjaliverma/Stone-Paper-Scissors-Game">View Project →</a>
+      </div>
+      <div class="project">
+        <h3>Square Hover Game</h3>
+        <p>CSS animation based interactive game</p>
+        <a href="https://github.com/Deepanjaliverma/SquareHover-Game">View Project →</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
