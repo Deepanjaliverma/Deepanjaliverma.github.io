@@ -2,87 +2,274 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Deepanjali Verma | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deepanjali Verma | Full-Stack Web Developer</title>
+  <meta name="description" content="Portfolio of Deepanjali Verma, a full-stack web developer building frontend interfaces and Node.js backends with PostgreSQL.">
+  <meta name="theme-color" content="#1f1b3a">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #f6f4fb;
+      --surface: #ffffff;
+      --text: #1f1b3a;
+      --muted: #5d5a73;
+      --accent: #5b3fd1;
+      --accent-soft: #ebe6fb;
+      --line: #dcd7ee;
+      --hero: #1f1b3a;
+      --hero-text: #f6f4fb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14122a;
+        --surface: #1d1a38;
+        --text: #f0eefa;
+        --muted: #aaa6c6;
+        --accent: #a994ff;
+        --accent-soft: #2a2552;
+        --line: #332e5c;
+        --hero: #0e0c20;
+        --hero-text: #f0eefa;
+      }
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 50px;
-      text-align: center;
-      max-width: 600px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
     }
-    h1 { color: #333; font-size: 2.5em; margin-bottom: 10px; }
-    .role { color: #667eea; font-size: 1.2em; margin-bottom: 30px; }
-    .links { display: flex; gap: 15px; justify-content: center; margin-bottom: 40px; }
-    .links a {
-      padding: 12px 25px;
-      border-radius: 25px;
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    header.hero {
+      background: var(--hero);
+      color: var(--hero-text);
+      padding: 80px 0 72px;
+    }
+    .hero h1 {
+      font-family: 'Times New Roman', Times, 'Liberation Serif', serif;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 8vw, 4.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .hero .role {
+      margin-top: 14px;
+      font-size: 1.15rem;
+      color: #c9c0f5;
+    }
+    .hero .intro {
+      margin-top: 22px;
+      max-width: 52ch;
+      color: #d8d3ee;
+    }
+    .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .btn {
+      display: inline-block;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
       text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.2s;
+      border: 2px solid #a994ff;
+      color: #fff;
+      transition: background 0.2s, color 0.2s;
     }
-    .links a:hover { transform: scale(1.05); }
-    .github { background: #333; color: white; }
-    .linkedin { background: #0077b5; color: white; }
-    .email { background: #ea4335; color: white; }
-    h2 { color: #333; margin-bottom: 20px; }
-    .projects { display: flex; flex-direction: column; gap: 15px; }
+    .btn:hover { background: #a994ff; color: #14122a; }
+    .btn.primary { background: #a994ff; color: #14122a; }
+    .btn.primary:hover { background: #fff; border-color: #fff; }
+
+    /* Sections */
+    section { padding: 64px 0 8px; }
+    h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.9rem;
+      margin-bottom: 8px;
+    }
+    .lead { color: var(--muted); margin-bottom: 28px; max-width: 60ch; }
+
+    /* Skills */
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+    .skills li {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.92rem;
+    }
+
+    /* Projects */
+    .projects { display: grid; gap: 18px; }
     .project {
-      background: #f8f9fa;
-      padding: 15px 20px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent);
       border-radius: 10px;
-      border-left: 4px solid #667eea;
-      text-align: left;
+      padding: 22px 24px;
     }
-    .project h3 { color: #333; margin-bottom: 5px; }
-    .project p { color: #666; font-size: 0.9em; }
+    .project h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .project p { color: var(--muted); margin-bottom: 14px; max-width: 62ch; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; list-style: none; }
+    .tags li { font-size: 0.8rem; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 2px 9px; }
     .project a {
-      color: #667eea;
+      color: var(--accent);
+      font-weight: 600;
       text-decoration: none;
-      font-size: 0.85em;
-      font-weight: bold;
+      border-bottom: 2px solid transparent;
+    }
+    .project a:hover { border-bottom-color: var(--accent); }
+    .project .actions { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    .features { margin: 0 0 16px 18px; color: var(--muted); max-width: 62ch; }
+    .features li { margin-bottom: 4px; }
+    h2.sub { margin-top: 48px; }
+    /* Contact + footer */
+    .contact p { color: var(--muted); max-width: 55ch; margin-bottom: 20px; }
+    .contact .btn { color: var(--accent); border-color: var(--accent); }
+    .contact .btn:hover { background: var(--accent); color: var(--bg); }
+    .email-line { margin-bottom: 16px; }
+    .email-text { color: var(--accent); font-weight: 600; word-break: break-all; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .contact button.btn { background: transparent; font: inherit; font-weight: 600; font-size: 0.95rem; cursor: pointer; }
+    .copy-status { margin-top: 12px; min-height: 1.4em; font-size: 0.9rem; }
+    footer { margin-top: 72px; padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+
+    @media (max-width: 520px) {
+      header.hero { padding: 56px 0 52px; }
+      .project { padding: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Deepanjali Verma</h1>
-    <p class="role">Frontend Web Developer</p>
-
-    <div class="links">
-      <a class="github" href="https://github.com/Deepanjaliverma">GitHub</a>
-      <a class="linkedin" href="https://linkedin.com/in/deepanjali-verma-96336a326">LinkedIn</a>
-      <a class="email" href="mailto:nes9deep65321@gmail.com">Email</a>
-    </div>
-
-    <h2>My Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Currency Converter</h3>
-        <p>Real-time currency conversion using Exchange Rate API</p>
-        <a href="https://github.com/Deepanjaliverma/Currency-Convertor-Website">View Project →</a>
-      </div>
-      <div class="project">
-        <h3>Stone Paper Scissors Game</h3>
-        <p>Interactive game built with JavaScript</p>
-        <a href="https://github.com/Deepanjaliverma/Stone-Paper-Scissors-Game">View Project →</a>
-      </div>
-      <div class="project">
-        <h3>Square Hover Game</h3>
-        <p>CSS animation based interactive game</p>
-        <a href="https://github.com/Deepanjaliverma/SquareHover-Game">View Project →</a>
+  <header class="hero">
+    <div class="wrap">
+      <h1>Deepanjali Verma</h1>
+      <p class="role">Full-Stack Web Developer</p>
+      <p class="intro">I build responsive web interfaces with HTML, CSS and JavaScript, and the Node.js backends, APIs and databases behind them.</p>
+      <div class="links">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="https://github.com/Deepanjaliverma" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/deepanjali-verma-96336a326" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn" href="#contact">Email</a>
       </div>
     </div>
-  </div>
+  </header>
+
+  <main class="wrap">
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>Responsive design</li>
+        <li>Node.js</li>
+        <li>Express.js</li>
+        <li>REST APIs</li>
+        <li>WebSocket</li>
+        <li>PostgreSQL</li>
+        <li>Chart.js</li>
+        <li>Git &amp; GitHub</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Full-stack projects</h2>
+      <p class="lead">Projects with a Node.js backend and a database.</p>
+      <div class="projects">
+        <article class="project">
+          <h3>PowerWatch: Smart Grid Anomaly Detection</h3>
+          <p>A real-time dashboard that watches electrical sensor readings (voltage, current, frequency, temperature) and flags unusual values as warnings or critical faults.</p>
+          <ul class='features'><li>Detects anomalies with a z-score over each sensor’s last 50 readings, so no fixed thresholds are needed</li><li>Shows live readings in animated charts and logs every fault in a searchable history page</li><li>Admin panel to manage sensors, protected by a login with bcrypt password hashing</li><li>REST API for sensors, readings, anomalies and login, plus a WebSocket stream for live data</li></ul>
+          <ul class="tags"><li>Node.js</li><li>Express.js</li><li>PostgreSQL</li><li>WebSocket</li><li>Chart.js</li><li>bcrypt</li></ul>
+          <div class="actions">
+            <a href="https://github.com/Deepanjaliverma/Power-Watch" target="_blank" rel="noopener noreferrer">View code on GitHub</a>
+          </div>
+        </article>
+        <article class="project">
+          <h3>Community Issues</h3>
+          <p>A Node.js web app for reporting and tracking issues in a community, with a server, API routes and a database behind the frontend pages.</p>
+          
+          <ul class="tags"><li>Node.js</li><li>Express.js</li><li>Database</li><li>REST API</li><li>JavaScript</li></ul>
+          <div class="actions">
+            <a href="https://github.com/Deepanjaliverma/Community-issues" target="_blank" rel="noopener noreferrer">View code on GitHub</a>
+          </div>
+        </article>
+      </div>
+      <h2 class="sub">Frontend projects</h2>
+      <p class="lead">Browser-only projects built with HTML, CSS and JavaScript.</p>
+      <div class="projects">
+        <article class="project">
+          <h3>Currency Converter</h3>
+          <p>Converts between currencies using live rates from the Exchange Rate API.</p>
+          
+          <ul class="tags"><li>JavaScript</li><li>API</li><li>CSS</li></ul>
+          <div class="actions">
+            <a href="https://github.com/Deepanjaliverma/Currency-Convertor-Website" target="_blank" rel="noopener noreferrer">View code on GitHub</a>
+          </div>
+        </article><article class="project">
+          <h3>Stone Paper Scissors Game</h3>
+          <p>Play against the computer, with a running score for each round.</p>
+          
+          <ul class="tags"><li>JavaScript</li><li>DOM</li><li>CSS</li></ul>
+          <div class="actions">
+            <a href="https://github.com/Deepanjaliverma/Stone-Paper-Scissors-Game" target="_blank" rel="noopener noreferrer">View code on GitHub</a>
+          </div>
+        </article><article class="project">
+          <h3>Square Hover Game</h3>
+          <p>A hover-based game built with CSS animations.</p>
+          
+          <ul class="tags"><li>HTML</li><li>CSS animation</li></ul>
+          <div class="actions">
+            <a href="https://github.com/Deepanjaliverma/SquareHover-Game" target="_blank" rel="noopener noreferrer">View code on GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>Looking for an internship or a junior full-stack role. Send me an email and I'll reply soon.</p>
+      <p class="email-line">Email: <a class="email-text" href="mailto:nes9deep65321@gmail.com">nes9deep65321@gmail.com</a></p>
+      <div class="contact-actions">
+        <a class="btn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=nes9deep65321@gmail.com&amp;su=Hello%20Deepanjali" target="_blank" rel="noopener noreferrer">Write in Gmail</a>
+        <a class="btn" href="mailto:nes9deep65321@gmail.com?subject=Hello%20Deepanjali">Open mail app</a>
+        <button class="btn copy" id="copyEmail" type="button" data-email="nes9deep65321@gmail.com">Copy email</button>
+      </div>
+      <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year">2026</span> Deepanjali Verma</div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('copyEmail').addEventListener('click', function () {
+      var email = this.dataset.email, status = document.getElementById('copyStatus');
+      function done(ok) { status.textContent = ok ? 'Email copied: ' + email : 'Copy failed. Please copy it manually: ' + email; }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(function () { done(true); }, function () { done(false); });
+      } else {
+        var t = document.createElement('textarea'); t.value = email; document.body.appendChild(t); t.select();
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(t); done(ok);
+      }
+    });
+  </script>
 </body>
 </html>
